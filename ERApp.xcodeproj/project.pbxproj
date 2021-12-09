@@ -13,6 +13,7 @@
 		921B411D2761D68E00F730A5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 921B411B2761D68E00F730A5 /* Main.storyboard */; };
 		921B411F2761D68F00F730A5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 921B411E2761D68F00F730A5 /* Assets.xcassets */; };
 		921B41222761D68F00F730A5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 921B41202761D68F00F730A5 /* LaunchScreen.storyboard */; };
+		FBDACCCB35CEA0FB9459E24E /* Pods_ERApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6A7EE744A43A7C588B51FF7 /* Pods_ERApp.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,9 @@
 		921B411E2761D68F00F730A5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		921B41212761D68F00F730A5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		921B41232761D68F00F730A5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A6A7EE744A43A7C588B51FF7 /* Pods_ERApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ERApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BC33923F90E55BCE90241070 /* Pods-ERApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ERApp.release.xcconfig"; path = "Target Support Files/Pods-ERApp/Pods-ERApp.release.xcconfig"; sourceTree = "<group>"; };
+		EB3368C65BF83174D002A65E /* Pods-ERApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ERApp.debug.xcconfig"; path = "Target Support Files/Pods-ERApp/Pods-ERApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +35,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FBDACCCB35CEA0FB9459E24E /* Pods_ERApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		71438BB82A5A7D921221F35E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				EB3368C65BF83174D002A65E /* Pods-ERApp.debug.xcconfig */,
+				BC33923F90E55BCE90241070 /* Pods-ERApp.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		7407B505543B7D650E4C95B2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A6A7EE744A43A7C588B51FF7 /* Pods_ERApp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		921B41092761D68E00F730A5 = {
 			isa = PBXGroup;
 			children = (
 				921B41142761D68E00F730A5 /* ERApp */,
 				921B41132761D68E00F730A5 /* Products */,
+				71438BB82A5A7D921221F35E /* Pods */,
+				7407B505543B7D650E4C95B2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -74,9 +99,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 921B41262761D68F00F730A5 /* Build configuration list for PBXNativeTarget "ERApp" */;
 			buildPhases = (
+				966575E2E5C848CC71B66FFA /* [CP] Check Pods Manifest.lock */,
 				921B410E2761D68E00F730A5 /* Sources */,
 				921B410F2761D68E00F730A5 /* Frameworks */,
 				921B41102761D68E00F730A5 /* Resources */,
+				2F8C4627B0359ED19DD7CB04 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -131,6 +158,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2F8C4627B0359ED19DD7CB04 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ERApp/Pods-ERApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ERApp/Pods-ERApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ERApp/Pods-ERApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		966575E2E5C848CC71B66FFA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ERApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		921B410E2761D68E00F730A5 /* Sources */ = {
@@ -283,6 +352,7 @@
 		};
 		921B41272761D68F00F730A5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EB3368C65BF83174D002A65E /* Pods-ERApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -302,6 +372,7 @@
 		};
 		921B41282761D68F00F730A5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BC33923F90E55BCE90241070 /* Pods-ERApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

@@ -14,6 +14,10 @@
 		921B411F2761D68F00F730A5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 921B411E2761D68F00F730A5 /* Assets.xcassets */; };
 		921B41222761D68F00F730A5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 921B41202761D68F00F730A5 /* LaunchScreen.storyboard */; };
 		921B412A2761DB0800F730A5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 921B41292761DB0800F730A5 /* GoogleService-Info.plist */; };
+		921B412C2761DD8500F730A5 /* BroadcastViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921B412B2761DD8500F730A5 /* BroadcastViewController.swift */; };
+		921B412E2761E0C500F730A5 /* AreaData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921B412D2761E0C500F730A5 /* AreaData.swift */; };
+		921B41302761E76600F730A5 /* HallData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921B412F2761E76600F730A5 /* HallData.swift */; };
+		921B41322761E7A900F730A5 /* BroadcastData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921B41312761E7A900F730A5 /* BroadcastData.swift */; };
 		FBDACCCB35CEA0FB9459E24E /* Pods_ERApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6A7EE744A43A7C588B51FF7 /* Pods_ERApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +31,10 @@
 		921B41212761D68F00F730A5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		921B41232761D68F00F730A5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		921B41292761DB0800F730A5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		921B412B2761DD8500F730A5 /* BroadcastViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BroadcastViewController.swift; sourceTree = "<group>"; };
+		921B412D2761E0C500F730A5 /* AreaData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreaData.swift; sourceTree = "<group>"; };
+		921B412F2761E76600F730A5 /* HallData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HallData.swift; sourceTree = "<group>"; };
+		921B41312761E7A900F730A5 /* BroadcastData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BroadcastData.swift; sourceTree = "<group>"; };
 		A6A7EE744A43A7C588B51FF7 /* Pods_ERApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ERApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC33923F90E55BCE90241070 /* Pods-ERApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ERApp.release.xcconfig"; path = "Target Support Files/Pods-ERApp/Pods-ERApp.release.xcconfig"; sourceTree = "<group>"; };
 		EB3368C65BF83174D002A65E /* Pods-ERApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ERApp.debug.xcconfig"; path = "Target Support Files/Pods-ERApp/Pods-ERApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -85,6 +93,10 @@
 				921B41152761D68E00F730A5 /* AppDelegate.swift */,
 				921B41172761D68E00F730A5 /* SceneDelegate.swift */,
 				921B41192761D68E00F730A5 /* ViewController.swift */,
+				921B412B2761DD8500F730A5 /* BroadcastViewController.swift */,
+				921B412D2761E0C500F730A5 /* AreaData.swift */,
+				921B412F2761E76600F730A5 /* HallData.swift */,
+				921B41312761E7A900F730A5 /* BroadcastData.swift */,
 				921B411B2761D68E00F730A5 /* Main.storyboard */,
 				921B411E2761D68F00F730A5 /* Assets.xcassets */,
 				921B41202761D68F00F730A5 /* LaunchScreen.storyboard */,
@@ -211,7 +223,11 @@
 			files = (
 				921B411A2761D68E00F730A5 /* ViewController.swift in Sources */,
 				921B41162761D68E00F730A5 /* AppDelegate.swift in Sources */,
+				921B412C2761DD8500F730A5 /* BroadcastViewController.swift in Sources */,
 				921B41182761D68E00F730A5 /* SceneDelegate.swift in Sources */,
+				921B41302761E76600F730A5 /* HallData.swift in Sources */,
+				921B41322761E7A900F730A5 /* BroadcastData.swift in Sources */,
+				921B412E2761E0C500F730A5 /* AreaData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

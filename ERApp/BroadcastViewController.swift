@@ -10,12 +10,14 @@ import Firebase
 
 
 
-class BroadcastViewController: UIViewController {
+class BroadcastViewController: UIViewController{
+    
     @IBOutlet weak var broadcastsTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        
         // Do any additional setup after loading the view.
         var areas: [AreaData] = []
         var halls: [HallData] = []
@@ -59,21 +61,22 @@ class BroadcastViewController: UIViewController {
                     
                     let area = AreaData(id: areaId, name: areaName)
                     areas.append(area)
-                
+                    print("DEBUG_PRINT_\(areas)")
                 }
             }
-    }
-    
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+        }
+        
+        
+        /*
+         // MARK: - Navigation
+         
+         // In a storyboard-based application, you will often want to do a little preparation before navigation
+         override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+         // Get the new view controller using segue.destination.
+         // Pass the selected object to the new view controller.
+         }
+         */
+        
     }
 }

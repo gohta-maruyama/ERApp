@@ -18,6 +18,11 @@
 		921B412E2761E0C500F730A5 /* AreaData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921B412D2761E0C500F730A5 /* AreaData.swift */; };
 		921B41302761E76600F730A5 /* HallData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921B412F2761E76600F730A5 /* HallData.swift */; };
 		921B41322761E7A900F730A5 /* BroadcastData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921B41312761E7A900F730A5 /* BroadcastData.swift */; };
+		921B41342763205B00F730A5 /* StatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921B41332763205B00F730A5 /* StatusViewController.swift */; };
+		921B4136276320D000F730A5 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921B4135276320D000F730A5 /* ChatViewController.swift */; };
+		921B4138276320DD00F730A5 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921B4137276320DD00F730A5 /* SettingViewController.swift */; };
+		921B413A2763216C00F730A5 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921B41392763216C00F730A5 /* TabBarController.swift */; };
+		921B413C2763251B00F730A5 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921B413B2763251B00F730A5 /* LoginViewController.swift */; };
 		FBDACCCB35CEA0FB9459E24E /* Pods_ERApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6A7EE744A43A7C588B51FF7 /* Pods_ERApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -35,6 +40,11 @@
 		921B412D2761E0C500F730A5 /* AreaData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreaData.swift; sourceTree = "<group>"; };
 		921B412F2761E76600F730A5 /* HallData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HallData.swift; sourceTree = "<group>"; };
 		921B41312761E7A900F730A5 /* BroadcastData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BroadcastData.swift; sourceTree = "<group>"; };
+		921B41332763205B00F730A5 /* StatusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusViewController.swift; sourceTree = "<group>"; };
+		921B4135276320D000F730A5 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		921B4137276320DD00F730A5 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		921B41392763216C00F730A5 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		921B413B2763251B00F730A5 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		A6A7EE744A43A7C588B51FF7 /* Pods_ERApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ERApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC33923F90E55BCE90241070 /* Pods-ERApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ERApp.release.xcconfig"; path = "Target Support Files/Pods-ERApp/Pods-ERApp.release.xcconfig"; sourceTree = "<group>"; };
 		EB3368C65BF83174D002A65E /* Pods-ERApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ERApp.debug.xcconfig"; path = "Target Support Files/Pods-ERApp/Pods-ERApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -93,7 +103,12 @@
 				921B41152761D68E00F730A5 /* AppDelegate.swift */,
 				921B41172761D68E00F730A5 /* SceneDelegate.swift */,
 				921B41192761D68E00F730A5 /* ViewController.swift */,
+				921B413B2763251B00F730A5 /* LoginViewController.swift */,
 				921B412B2761DD8500F730A5 /* BroadcastViewController.swift */,
+				921B41392763216C00F730A5 /* TabBarController.swift */,
+				921B41332763205B00F730A5 /* StatusViewController.swift */,
+				921B4135276320D000F730A5 /* ChatViewController.swift */,
+				921B4137276320DD00F730A5 /* SettingViewController.swift */,
 				921B412D2761E0C500F730A5 /* AreaData.swift */,
 				921B412F2761E76600F730A5 /* HallData.swift */,
 				921B41312761E7A900F730A5 /* BroadcastData.swift */,
@@ -221,12 +236,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				921B413C2763251B00F730A5 /* LoginViewController.swift in Sources */,
+				921B41342763205B00F730A5 /* StatusViewController.swift in Sources */,
 				921B411A2761D68E00F730A5 /* ViewController.swift in Sources */,
+				921B413A2763216C00F730A5 /* TabBarController.swift in Sources */,
 				921B41162761D68E00F730A5 /* AppDelegate.swift in Sources */,
 				921B412C2761DD8500F730A5 /* BroadcastViewController.swift in Sources */,
 				921B41182761D68E00F730A5 /* SceneDelegate.swift in Sources */,
+				921B4138276320DD00F730A5 /* SettingViewController.swift in Sources */,
 				921B41302761E76600F730A5 /* HallData.swift in Sources */,
 				921B41322761E7A900F730A5 /* BroadcastData.swift in Sources */,
+				921B4136276320D000F730A5 /* ChatViewController.swift in Sources */,
 				921B412E2761E0C500F730A5 /* AreaData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

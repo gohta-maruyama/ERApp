@@ -13,9 +13,9 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // タブアイコンの色
-        self.tabBar.tintColor = UIColor(red: 1.0, green: 0.44, blue: 0.11, alpha: 1)
+        self.tabBar.tintColor = UIColor(red: 0.11, green: 0.44, blue: 1.0, alpha: 1)
         // タブバーの背景色
-        self.tabBar.barTintColor = UIColor(red: 0.96, green: 0.91, blue: 0.87, alpha: 1)
+        self.tabBar.barTintColor = UIColor(red: 0.87, green: 0.91, blue: 0.96, alpha: 1)
         // UITabBarControllerDelegateプロトコルのメソッドをこのクラスで処理する。
         self.delegate = self
     }
@@ -35,6 +35,7 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
                 // ログインしていないときの処理
                 let loginViewController = self.storyboard?.instantiateViewController(withIdentifier: "Login")
                             self.present(loginViewController!, animated: true, completion: nil)
+                print("before present login")
             }
         }
     

@@ -5,6 +5,7 @@
 //  Created by 丸山昂大 on 2021/12/09.
 //
 import UIKit
+import Firebase
 
 class BroadcastData: NSObject {
     var id: String
@@ -21,6 +22,19 @@ class BroadcastData: NSObject {
         self.status = status
         self.level = level
     }
+    init(document: QueryDocumentSnapshot) {
+        self.id = document.documentID
+        
+        let broadcastDic = document.data()
+        
+        self.name = broadcastDic["name"] as! String
+        self.id = document.documentID
+        self.code = broadcastDic["code"] as! Int
+        self.status = broadcastDic["status"] as! Int
+        self.level = broadcastDic["level"] as! Int
+        
+
+        }
     
 }
 

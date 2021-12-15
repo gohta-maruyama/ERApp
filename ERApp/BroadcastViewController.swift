@@ -35,6 +35,7 @@ class BroadcastViewController: UIViewController{
                     }
                     let area = AreaData(id: areaId, name: areaName)
                     areas.append(area)
+                    print("DEBUG_PRINT" + areaName)
                 }
             }
             
@@ -75,7 +76,6 @@ class BroadcastViewController: UIViewController{
                             broadcasts.append(broadcast)
                             
                             
-                            print("DEBUG_PRINT_\(areas)")
                         }
                     }
                     

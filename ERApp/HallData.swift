@@ -5,6 +5,7 @@
 //  Created by 丸山昂大 on 2021/12/09.
 //
 import UIKit
+import Firebase
 
 class HallData: NSObject {
     var id: String
@@ -16,5 +17,16 @@ class HallData: NSObject {
         self.name = name
         
     }
+    init(document: QueryDocumentSnapshot) {
+        self.id = document.documentID
+        
+        let hallDic = document.data()
+        
+        self.name = hallDic["name"] as! String
+        
+        self.id = document.documentID
+        
+
+        }
     
 }

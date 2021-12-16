@@ -24,9 +24,6 @@ class AreaData: NSObject {
         
         self.name = areaDic["name"] as! String
         
-        self.id = document.documentID
-        
-
         }
     
 }

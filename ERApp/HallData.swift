@@ -24,9 +24,6 @@ class HallData: NSObject {
         
         self.name = hallDic["name"] as! String
         
-        self.id = document.documentID
-        
-
         }
     
 }

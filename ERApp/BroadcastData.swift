@@ -28,7 +28,6 @@ class BroadcastData: NSObject {
         let broadcastDic = document.data()
         
         self.name = broadcastDic["name"] as! String
-        self.id = document.documentID
         self.code = broadcastDic["code"] as! Int
         self.status = broadcastDic["status"] as! Int
         self.level = broadcastDic["level"] as! Int

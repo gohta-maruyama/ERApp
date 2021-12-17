@@ -13,7 +13,7 @@ class BroadcastViewController: UIViewController, UITableViewDelegate, UITableVie
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     
-    var areasArray: [AreaData] = []
+
     var broadArray: [BroadcastData] = []
     
     override func viewDidLoad() {
@@ -23,7 +23,7 @@ class BroadcastViewController: UIViewController, UITableViewDelegate, UITableVie
         tableView.dataSource = self
         
         if Auth.auth().currentUser != nil {
-            let broadRef = Firestore.firestore().collection("broadcasts").order(by: "name")
+            let broadRef = Firestore.firestore().collection("areas").document("k8XJ81ImYW3O8GfSAui3").collection("halls").document("WriYBnR3dKpX5dktfqEi").collection("broadcasts").order(by: "level")
             broadRef.getDocuments() { (querySnapshot, error) in
                 if let error = error {
                     print("DEBUG_PRINT: snapshotの取得が失敗しました。 \(error)")
@@ -40,8 +40,8 @@ class BroadcastViewController: UIViewController, UITableViewDelegate, UITableVie
             }
         }
         
-        //        searchBar.delegate = self
-        //        searchBar.enablesReturnKeyAutomatically = false
+//                searchBar.delegate = self
+//                searchBar.enablesReturnKeyAutomatically = false
         
     }
     
@@ -58,4 +58,11 @@ class BroadcastViewController: UIViewController, UITableViewDelegate, UITableVie
         
         return cell
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let statusViewController:StatusViewController = segue.destination as! StatusViewController
+        
+        statusViewController.broadcastName = "稲佐山"
+    }
+    
 }

@@ -128,6 +128,7 @@ class StatusViewController: UIViewController {
     }
     
     @IBOutlet weak var brodcastNameLavel: UILabel!
+    var broadcastName: String = ""
     
     @IBOutlet weak var statusLabel: UILabel!
     
@@ -135,6 +136,8 @@ class StatusViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        brodcastNameLavel.text = "\(broadcastName)"
         
         // Do any additional setup after loading the view.
     }

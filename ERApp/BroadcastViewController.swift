@@ -60,9 +60,16 @@ class BroadcastViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let statusViewController:StatusViewController = segue.destination as! StatusViewController
-        
-        statusViewController.broadcastName = "稲佐山"
+        if segue.identifier == "showStatusSegue" {
+            if let indexPath = tableView.indexPathForSelectedRow{
+                
+               guard let destination = segue.destination as? StatusViewController else{
+                
+               fatalError("Failed to prepare StatusViewController")
+            }
+                destination.broadcastName = broadArray[indexPath.row].name
+            }
+        }
     }
     
 }

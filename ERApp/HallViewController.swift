@@ -87,5 +87,11 @@ class HallViewController: UIViewController, UITableViewDelegate, UITableViewData
         return cell
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tableView.reloadData()
+        
+    }
+    
 
 }

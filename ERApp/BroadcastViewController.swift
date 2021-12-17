@@ -72,4 +72,11 @@ class BroadcastViewController: UIViewController, UITableViewDelegate, UITableVie
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tableView.reloadData()
+        
+    }
+    
+    
 }

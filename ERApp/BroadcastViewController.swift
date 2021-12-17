@@ -5,84 +5,96 @@
 //  Created by 丸山昂大 on 2021/12/09.
 //
 
+
 import UIKit
 import Firebase
 
-
-
-class BroadcastViewController: UIViewController{
+class BroadcastViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var searchBar: UISearchBar!
     
-    @IBOutlet weak var broadcastsTableView: UITableView!
+    var areasArray: [AreaData] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tableView.delegate = self
+        tableView.dataSource = self
         
-        // Do any additional setup after loading the view.
-        var areas: [AreaData] = []
+//        searchBar.delegate = self
+//        searchBar.enablesReturnKeyAutomatically = false
         
-        let db = Firestore.firestore()
-        db.collection("areas").getDocuments() { collection, err in
-            
-            for document in collection!.documents {
-                guard let areaDicList: [[String : Any]] = document.get("areas") as?[[String : Any]] else{
-                    continue
+        
+        
+        if Auth.auth().currentUser != nil {
+            // listenerを登録して投稿データの更新を監視する
+            let areasRef = Firestore.firestore().collection("areas").order(by: "name")
+            areasRef.getDocuments() { (querySnapshot, error) in
+                if let error = error {
+                    print("DEBUG_PRINT: snapshotの取得が失敗しました。 \(error)")
+                    return
                 }
-                for areaDic in areaDicList {
-                    guard let areaId = areaDic["id"] as? String,
-                          let areaName = areaDic["name"] as? String else{
-                        continue
-                    }
-                    let area = AreaData(id: areaId, name: areaName)
-                    areas.append(area)
-                    print("DEBUG_PRINT" + areaName)
-                }
-            }
-            
-            if let err = err {
-                print("Error getting documents:\(err)")
-            } else {
-                for document in collection!.documents {
-                    guard let hallDicList: [[String : Any]] = document.get("halls") as?[[String : Any]] else {
-                        continue
-                    }
-                    var halls: [HallData] = []
-                    
-                    for hallDic in hallDicList {
-                        guard let hallId = hallDic["id"] as? String,
-                              let hallName = hallDic["name"] as? String else{
-                            continue
+                self.areasArray = querySnapshot!.documents.map { document in
+
+                    let area = AreaData(document: document)
+                    print("DEBUG_PRINT: document取得 \(area.name)")
+                    // ここでさらにhallsを取得する。
+                    let hallsRef = Firestore.firestore().collection("areas").document(area.id).collection("halls").order(by: "name")
+                    hallsRef.getDocuments() { (hallQuerySnapshot, hallError) in
+                        if let hallError = hallError {
+                            print("DEBUG_PRINT: snapshotの取得が失敗しました。 \(hallError)")
+                            return
                         }
-                        let hall = HallData(id: hallId, name: hallName)
-                        halls.append(hall)
-                    }
-                    
-                    for document in collection!.documents{
-                        guard let broadcastDicList: [[String : Any]] = document.get("broadcasts") as?[[String : Any]]else{
-                            continue
+                        area.halls = hallQuerySnapshot!.documents.map { document in
+
+                            let hall = HallData(document: document)
+                            print("DEBUG_PRINT: document取得 \(hall.name)")
                             
-                        }
-                        
-                        var broadcasts: [BroadcastData] = []
-                        for broadcastDic in broadcastDicList {
-                            guard let broadcastId = broadcastDic["id"] as? String,
-                                  let broadcastName = broadcastDic["name"] as? String,
-                                  let broadcastStatus = broadcastDic["status"] as? Int,
-                                  let broadcastCode = broadcastDic["code"] as? Int,
-                                  let broadcastLevel = broadcastDic["level"] as? Int else{
-                                continue
+                            let broadcastsRef = Firestore.firestore().collection("areas").document(area.id).collection("halls").document(hall.id).collection("broadcasts").order(by: "name")
+                            broadcastsRef.getDocuments() {(broadcastQuerySnapshot, broadcastError) in
+                                if let broadcastError = broadcastError {
+                                    print("DEBUG_PRINT: snapshotの取得が失敗しました。\(broadcastError)")
+                                    return
+                                }
+                                hall.broadcasts = broadcastQuerySnapshot!.documents.map { document in
+                                    
+                                    let broadcast = BroadcastData(document: document)
+                                    print("DEBUG_PRINT: document取得 \(broadcast.name)")
+                                    
+                                    return broadcast
+                                }
+                                self.tableView.reloadData()
                             }
-                            let broadcast = BroadcastData(id: broadcastId, name: broadcastName, code: broadcastCode, status: broadcastStatus, level: broadcastLevel)
-                            broadcasts.append(broadcast)
                             
-                            
+                            return hall
                         }
+                        self.tableView.reloadData()
                     }
-                    
+                    return area
+    
                 }
+                // TableViewの表示を更新する
+                self.tableView.reloadData()
+
             }
-            
-            
+                // Do any additional setup after loading the view.
+                
         }
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return areasArray[section].halls[section].broadcasts.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+
+        let area = areasArray[indexPath.section]
+        let hall = area.halls[indexPath.section]
+        let broadcast = hall.broadcasts[indexPath.row]
+        
+        cell.textLabel?.text = hall.broadcasts
+        
+        return cell
     }
 }

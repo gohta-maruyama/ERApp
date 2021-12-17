@@ -75,12 +75,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="Rag-g4-bnW">
-                                <rect key="frame" x="0.0" y="88" width="414" height="51"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Z4V-tu-2Er">
-                                <rect key="frame" x="0.0" y="139" width="414" height="674"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AreaCell" id="p0L-iO-NrG">
@@ -101,17 +97,12 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Z4V-tu-2Er" firstAttribute="leading" secondItem="HhB-tB-9kC" secondAttribute="leading" id="9Ot-we-Low"/>
-                            <constraint firstItem="Rag-g4-bnW" firstAttribute="leading" secondItem="HhB-tB-9kC" secondAttribute="leading" id="GzT-Yj-D5e"/>
+                            <constraint firstItem="Z4V-tu-2Er" firstAttribute="top" secondItem="HhB-tB-9kC" secondAttribute="top" id="Ncj-vX-wfw"/>
                             <constraint firstItem="HhB-tB-9kC" firstAttribute="bottom" secondItem="Z4V-tu-2Er" secondAttribute="bottom" id="atQ-un-ub3"/>
                             <constraint firstItem="HhB-tB-9kC" firstAttribute="trailing" secondItem="Z4V-tu-2Er" secondAttribute="trailing" id="dke-Nt-6dn"/>
-                            <constraint firstItem="Rag-g4-bnW" firstAttribute="top" secondItem="HhB-tB-9kC" secondAttribute="top" id="jkD-Rl-OQr"/>
-                            <constraint firstItem="Z4V-tu-2Er" firstAttribute="top" secondItem="Rag-g4-bnW" secondAttribute="bottom" id="ko8-yp-oMv"/>
-                            <constraint firstItem="Rag-g4-bnW" firstAttribute="trailing" secondItem="HhB-tB-9kC" secondAttribute="trailing" id="xna-S0-2z8"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="VQW-TJ-wJs">
-                        <barButtonItem key="leftBarButtonItem" title="&lt; Back" id="9gk-De-hJ3"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="VQW-TJ-wJs"/>
                     <connections>
                         <outlet property="tableView" destination="Z4V-tu-2Er" id="zPa-gc-siC"/>
                     </connections>
@@ -164,6 +155,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="Ndt-8C-yY6"/>
                     <connections>
+                        <outlet property="searchBar" destination="Ene-J0-TzG" id="5vu-rg-UA1"/>
                         <outlet property="tableView" destination="jc2-mU-p6F" id="dnf-4L-xhQ"/>
                     </connections>
                 </viewController>

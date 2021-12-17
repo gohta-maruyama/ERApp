@@ -24,7 +24,7 @@ class HallViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         if Auth.auth().currentUser != nil {
             // listenerを登録して投稿データの更新を監視する
-            let areasRef = Firestore.firestore().collection("areas")
+            let areasRef = Firestore.firestore().collection("areas").order(by: "name")
             areasRef.getDocuments() { (querySnapshot, error) in
                 if let error = error {
                     print("DEBUG_PRINT: snapshotの取得が失敗しました。 \(error)")
@@ -35,7 +35,7 @@ class HallViewController: UIViewController, UITableViewDelegate, UITableViewData
                     let area = AreaData(document: document)
                     print("DEBUG_PRINT: document取得 \(area.name)")
                     // ここでさらにhallsを取得する。
-                    let hallsRef = Firestore.firestore().collection("areas").document(area.id).collection("halls")
+                    let hallsRef = Firestore.firestore().collection("areas").document(area.id).collection("halls").order(by: "name")
                     hallsRef.getDocuments() { (hallQuerySnapshot, hallError) in
                         if let hallError = hallError {
                             print("DEBUG_PRINT: snapshotの取得が失敗しました。 \(hallError)")
@@ -47,6 +47,7 @@ class HallViewController: UIViewController, UITableViewDelegate, UITableViewData
                             print("DEBUG_PRINT: document取得 \(hall.name)")
                             return hall
                         }
+                        self.tableView.reloadData()
                     }
                     return area
     

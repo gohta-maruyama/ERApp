@@ -68,13 +68,13 @@ class BroadcastViewController: UIViewController, UITableViewDelegate, UITableVie
                             
                             return hall
                         }
-                        self.tableView.reloadData()
+//                        self.tableView.reloadData()
                     }
                     return area
     
                 }
                 // TableViewの表示を更新する
-                self.tableView.reloadData()
+//                self.tableView.reloadData()
 
             }
                 // Do any additional setup after loading the view.
@@ -89,11 +89,9 @@ class BroadcastViewController: UIViewController, UITableViewDelegate, UITableVie
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
 
-        let area = areasArray[indexPath.section]
-        let hall = area.halls[indexPath.section]
-        let broadcast = hall.broadcasts[indexPath.row]
+        let broadcast = areasArray[indexPath.row].halls[indexPath.row].broadcasts[indexPath.row]
         
-        cell.textLabel?.text = hall.broadcasts
+        cell.textLabel?.text = broadcast.name
         
         return cell
     }

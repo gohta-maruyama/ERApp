@@ -24,6 +24,7 @@
 		921B413C2763251B00F730A5 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921B413B2763251B00F730A5 /* LoginViewController.swift */; };
 		92E4D7212769B4F9005591B4 /* getFireStoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E4D7202769B4F9005591B4 /* getFireStoreData.swift */; };
 		92E4D7232769E878005591B4 /* HallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E4D7222769E878005591B4 /* HallViewController.swift */; };
+		92E4D725276C7384005591B4 /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E4D724276C7384005591B4 /* Const.swift */; };
 		FBDACCCB35CEA0FB9459E24E /* Pods_ERApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6A7EE744A43A7C588B51FF7 /* Pods_ERApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +48,7 @@
 		921B413B2763251B00F730A5 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		92E4D7202769B4F9005591B4 /* getFireStoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getFireStoreData.swift; sourceTree = "<group>"; };
 		92E4D7222769E878005591B4 /* HallViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HallViewController.swift; sourceTree = "<group>"; };
+		92E4D724276C7384005591B4 /* Const.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
 		A6A7EE744A43A7C588B51FF7 /* Pods_ERApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ERApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC33923F90E55BCE90241070 /* Pods-ERApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ERApp.release.xcconfig"; path = "Target Support Files/Pods-ERApp/Pods-ERApp.release.xcconfig"; sourceTree = "<group>"; };
 		EB3368C65BF83174D002A65E /* Pods-ERApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ERApp.debug.xcconfig"; path = "Target Support Files/Pods-ERApp/Pods-ERApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 				921B412B2761DD8500F730A5 /* BroadcastViewController.swift */,
 				921B41392763216C00F730A5 /* TabBarController.swift */,
 				921B41332763205B00F730A5 /* StatusViewController.swift */,
+				92E4D724276C7384005591B4 /* Const.swift */,
 				921B4135276320D000F730A5 /* ChatViewController.swift */,
 				921B4137276320DD00F730A5 /* SettingViewController.swift */,
 				921B412D2761E0C500F730A5 /* AreaData.swift */,
@@ -252,6 +255,7 @@
 				921B41322761E7A900F730A5 /* BroadcastData.swift in Sources */,
 				921B4136276320D000F730A5 /* ChatViewController.swift in Sources */,
 				921B412E2761E0C500F730A5 /* AreaData.swift in Sources */,
+				92E4D725276C7384005591B4 /* Const.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,9 +7,9 @@
 
 import UIKit
 import Firebase
+import SVProgressHUD
 
 class StatusViewController: UIViewController {
-    
     
     
     @IBAction func normalityButton(_ sender: Any) {
@@ -55,6 +55,7 @@ class StatusViewController: UIViewController {
             (action: UIAlertAction!) -> Void in
             print("Cancel")
         })
+        
         
         // ③ UIAlertControllerにActionを追加
         alert.addAction(cancelAction)

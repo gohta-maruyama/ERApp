@@ -93,5 +93,17 @@ class HallViewController: UIViewController, UITableViewDelegate, UITableViewData
         
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let broadcastControllerView: BroadcastViewController = segue.destination as! BroadcastViewController
+        
+        if segue.identifier == "cellSegue" {
+            let indexPath = self.tableView.indexPathForSelectedRow
+            let area = areasArray[indexPath!.section]
+            broadcastControllerView.area = areasArray[indexPath!.section]
+            broadcastControllerView.hall = area.halls[indexPath!.row]
+        }
+        
+    }
+    
 
 }

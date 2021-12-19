@@ -14,8 +14,8 @@ class BroadcastViewController: UIViewController, UITableViewDelegate, UITableVie
     @IBOutlet weak var searchBar: UISearchBar!
     
     var broadArray: [BroadcastData] = []
-    var area: AreaData?
-    var hall: HallData?
+    var area: AreaData?;
+    var hall: HallData?;
 
     
     override func viewDidLoad() {
@@ -64,19 +64,15 @@ class BroadcastViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let statusViewController:StatusViewController = segue.destination as! StatusViewController
-        
         if segue.identifier == "showStatusSegue" {
-//            if let indexPath = self.tableView.indexPathForSelectedRow{
-//
-//               guard let destination = segue.destination as? StatusViewController else{
-//
-//               fatalError("Failed to prepare StatusViewController")
-//            }
-//                destination.broadcastName = broadArray[indexPath.row].name
-//            }
-            let indexPath = self.tableView.indexPathForSelectedRow
-            statusViewController.broadcastName = broadArray[indexPath!.row].name
+            if let indexPath = tableView.indexPathForSelectedRow{
+                
+               guard let destination = segue.destination as? StatusViewController else{
+                
+               fatalError("Failed to prepare StatusViewController")
+            }
+                destination.broadcastName = broadArray[indexPath.row].name
+            }
         }
     }
     
@@ -85,8 +81,6 @@ class BroadcastViewController: UIViewController, UITableViewDelegate, UITableVie
         self.tableView.reloadData()
         
     }
-    
-
     
     
 }

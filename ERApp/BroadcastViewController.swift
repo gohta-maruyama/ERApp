@@ -13,8 +13,10 @@ class BroadcastViewController: UIViewController, UITableViewDelegate, UITableVie
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     
-
     var broadArray: [BroadcastData] = []
+    var area: AreaData?
+    var hall: HallData?
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +25,7 @@ class BroadcastViewController: UIViewController, UITableViewDelegate, UITableVie
         tableView.dataSource = self
         
         if Auth.auth().currentUser != nil {
-            let broadRef = Firestore.firestore().collection("areas").document("k8XJ81ImYW3O8GfSAui3").collection("halls").document("WriYBnR3dKpX5dktfqEi").collection("broadcasts").order(by: "level")
+            let broadRef = Firestore.firestore().collection("areas").document(area!.id).collection("halls").document(hall!.id).collection("broadcasts").order(by: "level")
             broadRef.getDocuments() { (querySnapshot, error) in
                 if let error = error {
                     print("DEBUG_PRINT: snapshotの取得が失敗しました。 \(error)")
@@ -32,20 +34,18 @@ class BroadcastViewController: UIViewController, UITableViewDelegate, UITableVie
                 self.broadArray = querySnapshot!.documents.map { document in
                     let broadcast = BroadcastData(document: document)
                     print("DEBUG_PRINT: document取得 \(broadcast.name)")
-                    
+
                     return broadcast
-                    
+
                 }
                 self.tableView.reloadData()
             }
         }
         
-//                searchBar.delegate = self
-//                searchBar.enablesReturnKeyAutomatically = false
-        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+
         return broadArray.count
     }
     
@@ -59,16 +59,24 @@ class BroadcastViewController: UIViewController, UITableViewDelegate, UITableVie
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "showStatusSegue", sender: nil)
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let statusViewController:StatusViewController = segue.destination as! StatusViewController
+        
         if segue.identifier == "showStatusSegue" {
-            if let indexPath = tableView.indexPathForSelectedRow{
-                
-               guard let destination = segue.destination as? StatusViewController else{
-                
-               fatalError("Failed to prepare StatusViewController")
-            }
-                destination.broadcastName = broadArray[indexPath.row].name
-            }
+//            if let indexPath = self.tableView.indexPathForSelectedRow{
+//
+//               guard let destination = segue.destination as? StatusViewController else{
+//
+//               fatalError("Failed to prepare StatusViewController")
+//            }
+//                destination.broadcastName = broadArray[indexPath.row].name
+//            }
+            let indexPath = self.tableView.indexPathForSelectedRow
+            statusViewController.broadcastName = broadArray[indexPath!.row].name
         }
     }
     
@@ -77,6 +85,8 @@ class BroadcastViewController: UIViewController, UITableViewDelegate, UITableVie
         self.tableView.reloadData()
         
     }
+    
+
     
     
 }

@@ -11,7 +11,6 @@ import SVProgressHUD
 
 class StatusViewController: UIViewController {
     
-    
     @IBAction func normalityButton(_ sender: Any) {
         let alert: UIAlertController = UIAlertController(title: "確認！", message: "状態を「異常なし」に変更しますか？", preferredStyle: UIAlertController.Style.alert)
         let defaultAction: UIAlertAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler:{

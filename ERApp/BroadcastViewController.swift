@@ -59,9 +59,10 @@ class BroadcastViewController: UIViewController, UITableViewDelegate, UITableVie
         return cell
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "showStatusSegue", sender: nil)
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
     }
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showStatusSegue" {
@@ -72,9 +73,13 @@ class BroadcastViewController: UIViewController, UITableViewDelegate, UITableVie
                fatalError("Failed to prepare StatusViewController")
             }
                 destination.broadcastName = broadArray[indexPath.row].name
+                destination.area = area
+                destination.hall = hall
+                destination.broadcast = broadArray[indexPath.row]
             }
         }
     }
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)

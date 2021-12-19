@@ -11,6 +11,11 @@ import SVProgressHUD
 
 class StatusViewController: UIViewController {
     
+    var area: AreaData?;
+    var hall: HallData?;
+    var broadcast: BroadcastData?;
+    var statusNumber: Int = 0;
+    
     @IBAction func normalityButton(_ sender: Any) {
         let alert: UIAlertController = UIAlertController(title: "確認！", message: "状態を「異常なし」に変更しますか？", preferredStyle: UIAlertController.Style.alert)
         let defaultAction: UIAlertAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler:{
@@ -140,6 +145,16 @@ class StatusViewController: UIViewController {
         brodcastNameLavel.text = "\(broadcastName)"
         
         // Do any additional setup after loading the view.
+    }
+    
+    func updateStatus(status: Int) {
+        
+        Firestore.firestore().collection("areas").document(area?.id).collection("halls").document(hall?.id).collection("broadcasts").document(broadcast?.status).updateData(statusNumber)
+        
+    }
+    
+    func setStatusLabel() {
+        
     }
     
     

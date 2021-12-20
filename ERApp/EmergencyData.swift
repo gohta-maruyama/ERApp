@@ -10,7 +10,7 @@ import Firebase
 
 class EmergencyData: NSObject {
     var id: String
-    var status: Int
+    var status: Int?
     var halls: [HallData] = []
     
     init(id: String, status: Int) {
@@ -23,7 +23,7 @@ class EmergencyData: NSObject {
         
         let emergencyDic = document.data()
         
-        self.status = emergencyDic["status"] as! Int
+        self.status = emergencyDic["status"] as! Int?
         
         }
     

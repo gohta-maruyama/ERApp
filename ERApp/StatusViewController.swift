@@ -15,6 +15,7 @@ class StatusViewController: UIViewController {
     var hall: HallData!
     var broadcast: BroadcastData!
     var emergency: EmergencyData!
+    var emergencyArray: [EmergencyData] = []
     var statusNumber: Int = 0
     var alertMessage: String = ""
     
@@ -62,27 +63,8 @@ class StatusViewController: UIViewController {
         super.viewDidLoad()
         
         broadcastNameLabel.text = broadcast?.name
-                
-        // Do any additional setup after loading the view.
         
-            if emergency?.status == 1 {
-              broadcast.status = 5
-              let alert: UIAlertController = UIAlertController(title: "緊急", message: "火起こしを開始してください", preferredStyle: UIAlertController.Style.alert)
-                  let defaultAction: UIAlertAction = UIAlertAction(title: "確認", style: UIAlertAction.Style.default, handler:{
-                    // ボタンが押された時の処理を書く（クロージャ実装）
-        
-                    (action: UIAlertAction!) -> Void in
-        
-                    print("OK3")
-                  })
-        
-        
-                  // ③ UIAlertControllerにActionを追加
-                  alert.addAction(defaultAction)
-        
-                  // ④ Alertを表示
-                  present(alert, animated: true, completion: nil)
-            }
+        // Do any additional setup after loading the view
     }
     
     func updateStatus(status: Int) {

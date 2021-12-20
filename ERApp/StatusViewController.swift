@@ -69,22 +69,30 @@ class StatusViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        listener = Firestore.firestore().collection("emergencies").addSnapshotListener { documentSnapshot, error in
-            if let error = error {
-                print("ドキュメントの取得に失敗しました",error)
-            } else {
-                self.emergencyArray = documentSnapshot!.documents.map { document in
-                    let emergency = EmergencyData(document: document)
-                    return emergency
-                    
-                    if self.emergency.status == 1 {
-                        self.broadcast.status = 5
-                        }
-                    }
-                }
+        Firestore.firestore().collection("emergencies").document(hall.id).addSnapshotListener { documentSnapshot, error in
+            guard let documentSnapshot = documentSnapshot
+            else {
+                print("Error fetching document: \(error!)")
+                return
             }
+            let source = documentSnapshot.metadata.hasPendingWrites ? "Local" : "Server"
+            print("\(source) data : \(documentSnapshot.data()!)")
+            
+        }
         
-    
+        if emergency?.status == 1 {
+            let emergencyAlert: UIAlertController = UIAlertController(title: "緊急", message: "火起こしを開始してください", preferredStyle: UIAlertController.Style.alert)
+            let defaultAction: UIAlertAction = UIAlertAction(title: "確認", style: UIAlertAction.Style.default, handler:{
+                // ボタンが押された時の処理を書く（クロージャ実装）
+                
+                (action: UIAlertAction!) -> Void in
+                self.broadcast.status = 5
+                
+                print("OK2")
+            })
+            emergencyAlert.addAction(defaultAction)
+            present(emergencyAlert, animated: true, completion: nil)
+        }
     }
     
     func updateStatus(status: Int) {

@@ -293,7 +293,6 @@ PODS:
     - SDWebImage (~> 5.6)
   - FirebaseUI/Storage (12.0.2):
     - FirebaseStorageUI (~> 12.0)
-  - FontAwesome.swift (1.9.1)
   - GoogleAppMeasurement (8.4.0):
     - GoogleAppMeasurement/AdIdSupport (= 8.4.0)
     - GoogleUtilities/AppDelegateSwizzler (~> 7.4)
@@ -374,7 +373,6 @@ DEPENDENCIES:
   - Firebase/Firestore
   - Firebase/Storage
   - FirebaseUI/Storage
-  - FontAwesome.swift
   - SVProgressHUD (= 2.2.5)
 
 SPEC REPOS:
@@ -391,7 +389,6 @@ SPEC REPOS:
     - FirebaseStorage
     - FirebaseStorageUI
     - FirebaseUI
-    - FontAwesome.swift
     - GoogleAppMeasurement
     - GoogleDataTransport
     - GoogleUtilities
@@ -417,7 +414,6 @@ SPEC CHECKSUMS:
   FirebaseStorage: e6065bcbf70e2a06a8c3ddc66cbe03a395bbddc4
   FirebaseStorageUI: 9f5b32264e77dc073dec45f00c5b3a77e5ca901e
   FirebaseUI: b04b32ead3a6dcd5a50829e14b8f3f6d044d5d62
-  FontAwesome.swift: 6b52cb7be66eacd28cbfaa0ca7ffd0de4a186a1d
   GoogleAppMeasurement: 6b6a08fd9c71f4dbc89e0e812acca81d797aa342
   GoogleDataTransport: 629c20a4d363167143f30ea78320d5a7eb8bd940
   GoogleUtilities: 684ee790a24f73ebb2d1d966e9711c203f2a4237
@@ -430,6 +426,6 @@ SPEC CHECKSUMS:
   SDWebImage: 4dc3e42d9ec0c1028b960a33ac6b637bb432207b
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
 
-PODFILE CHECKSUM: c8fe5ce2a00c58650015e55cda969a57fdf845e6
+PODFILE CHECKSUM: 0f2258baa6b221f65e3bfe28b84d5d8ddf90d1e9
 
 COCOAPODS: 1.11.2

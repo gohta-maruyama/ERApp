@@ -11,114 +11,121 @@ import SVProgressHUD
 
 class StatusViewController: UIViewController {
     
-    var area: AreaData?;
-    var hall: HallData?;
-    var broadcast: BroadcastData?;
-    var statusNumber: Int = 0;
+    var area: AreaData!
+    var hall: HallData!
+    var broadcast: BroadcastData!
+    var statusNumber: Int = 0
+    var alertMessage: String = ""
     
     @IBAction func normalityButton(_ sender: Any) {
-        let alert: UIAlertController = UIAlertController(title: "確認！", message: "状態を「異常なし」に変更しますか？", preferredStyle: UIAlertController.Style.alert)
-        let defaultAction: UIAlertAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler:{
-            // ボタンが押された時の処理を書く（クロージャ実装）
-            
-            (action: UIAlertAction!) -> Void in
-            self.statusLabel.text = "異常なし"
-            self.statusLabel.layer.backgroundColor = UIColor.white.cgColor
-            print("OK")
-        })
-        // キャンセルボタン
-        let cancelAction: UIAlertAction = UIAlertAction(title: "キャンセル", style: UIAlertAction.Style.cancel, handler:{
-            // ボタンが押された時の処理を書く（クロージャ実装）
-            (action: UIAlertAction!) -> Void in
-            print("Cancel")
-        })
+//        let alert: UIAlertController = UIAlertController(title: "確認！", message: "状態を「異常なし」に変更しますか？", preferredStyle: UIAlertController.Style.alert)
+//        let defaultAction: UIAlertAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler:{
+//            // ボタンが押された時の処理を書く（クロージャ実装）
+//
+//            (action: UIAlertAction!) -> Void in
+//            self.statusLabel.text = "異常なし"
+//            self.statusLabel.layer.backgroundColor = UIColor.white.cgColor
+//            print("OK")
+//        })
+//        // キャンセルボタン
+//        let cancelAction: UIAlertAction = UIAlertAction(title: "キャンセル", style: UIAlertAction.Style.cancel, handler:{
+//            // ボタンが押された時の処理を書く（クロージャ実装）
+//            (action: UIAlertAction!) -> Void in
+//            print("Cancel")
+//        })
+//
+//        // ③ UIAlertControllerにActionを追加
+//        alert.addAction(cancelAction)
+//        alert.addAction(defaultAction)
+//
+//        // ④ Alertを表示
+//        present(alert, animated: true, completion: nil)
         
-        // ③ UIAlertControllerにActionを追加
-        alert.addAction(cancelAction)
-        alert.addAction(defaultAction)
-        
-        // ④ Alertを表示
-        present(alert, animated: true, completion: nil)
+        showStatusChangeAlert(message: "状態を「異常なし」に変更しますか？", status: 0)
         
         
     }
     
     @IBAction func admissionButton(_ sender: Any) {
-        let alert: UIAlertController = UIAlertController(title: "確認！", message: "状態を「入局中」に変更しますか？", preferredStyle: UIAlertController.Style.alert)
-        let defaultAction: UIAlertAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler:{
-            // ボタンが押された時の処理を書く（クロージャ実装）
-            
-            (action: UIAlertAction!) -> Void in
-            self.statusLabel.text = "入局中"
-            self.statusLabel.layer.backgroundColor = UIColor.cyan.cgColor
-            print("OK")
-        })
-        // キャンセルボタン
-        let cancelAction: UIAlertAction = UIAlertAction(title: "キャンセル", style: UIAlertAction.Style.cancel, handler:{
-            // ボタンが押された時の処理を書く（クロージャ実装）
-            (action: UIAlertAction!) -> Void in
-            print("Cancel")
-        })
+//        let alert: UIAlertController = UIAlertController(title: "確認！", message: "状態を「入局中」に変更しますか？", preferredStyle: UIAlertController.Style.alert)
+//        let defaultAction: UIAlertAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler:{
+//            // ボタンが押された時の処理を書く（クロージャ実装）
+//
+//            (action: UIAlertAction!) -> Void in
+//            self.statusLabel.text = "入局中"
+//            self.statusLabel.layer.backgroundColor = UIColor.cyan.cgColor
+//            print("OK")
+//        })
+//        // キャンセルボタン
+//        let cancelAction: UIAlertAction = UIAlertAction(title: "キャンセル", style: UIAlertAction.Style.cancel, handler:{
+//            // ボタンが押された時の処理を書く（クロージャ実装）
+//            (action: UIAlertAction!) -> Void in
+//            print("Cancel")
+//        })
+//
+//
+//        // ③ UIAlertControllerにActionを追加
+//        alert.addAction(cancelAction)
+//        alert.addAction(defaultAction)
+//
+//        // ④ Alertを表示
+//        present(alert, animated: true, completion: nil)
         
-        
-        // ③ UIAlertControllerにActionを追加
-        alert.addAction(cancelAction)
-        alert.addAction(defaultAction)
-        
-        // ④ Alertを表示
-        present(alert, animated: true, completion: nil)
+        showStatusChangeAlert(message: "状態を「入局中」に変更しますか？", status: 1)
         
     }
     
     @IBAction func workingButton(_ sender: Any) {
-        let alert: UIAlertController = UIAlertController(title: "確認！", message: "状態を「作業中」に変更しますか？", preferredStyle: UIAlertController.Style.alert)
-        let defaultAction: UIAlertAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler:{
-            // ボタンが押された時の処理を書く（クロージャ実装）
-            
-            (action: UIAlertAction!) -> Void in
-            self.statusLabel.text = "作業中"
-            self.statusLabel.layer.backgroundColor = UIColor.yellow.cgColor
-            print("OK")
-        })
-        // キャンセルボタン
-        let cancelAction: UIAlertAction = UIAlertAction(title: "キャンセル", style: UIAlertAction.Style.cancel, handler:{
-            // ボタンが押された時の処理を書く（クロージャ実装）
-            (action: UIAlertAction!) -> Void in
-            print("Cancel")
-        })
-        
-        // ③ UIAlertControllerにActionを追加
-        alert.addAction(cancelAction)
-        alert.addAction(defaultAction)
-        
-        // ④ Alertを表示
-        present(alert, animated: true, completion: nil)
+//        let alert: UIAlertController = UIAlertController(title: "確認！", message: "状態を「作業中」に変更しますか？", preferredStyle: UIAlertController.Style.alert)
+//        let defaultAction: UIAlertAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler:{
+//            // ボタンが押された時の処理を書く（クロージャ実装）
+//
+//            (action: UIAlertAction!) -> Void in
+//            self.statusLabel.text = "作業中"
+//            self.statusLabel.layer.backgroundColor = UIColor.yellow.cgColor
+//            print("OK")
+//        })
+//        // キャンセルボタン
+//        let cancelAction: UIAlertAction = UIAlertAction(title: "キャンセル", style: UIAlertAction.Style.cancel, handler:{
+//            // ボタンが押された時の処理を書く（クロージャ実装）
+//            (action: UIAlertAction!) -> Void in
+//            print("Cancel")
+//        })
+//
+//        // ③ UIAlertControllerにActionを追加
+//        alert.addAction(cancelAction)
+//        alert.addAction(defaultAction)
+//
+//        // ④ Alertを表示
+//        present(alert, animated: true, completion: nil)
+        showStatusChangeAlert(message: "状態を「作業中」に変更しますか？", status: 2)
         
     }
     
     @IBAction func finishedWorking(_ sender: Any) {
-        let alert: UIAlertController = UIAlertController(title: "確認！", message: "状態を「作業完了」に変更しますか？", preferredStyle: UIAlertController.Style.alert)
-        let defaultAction: UIAlertAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler:{
-            // ボタンが押された時の処理を書く（クロージャ実装）
-            
-            (action: UIAlertAction!) -> Void in
-            self.statusLabel.text = "作業完了"
-            self.statusLabel.layer.backgroundColor = UIColor.green.cgColor
-            print("OK")
-        })
-        // キャンセルボタン
-        let cancelAction: UIAlertAction = UIAlertAction(title: "キャンセル", style: UIAlertAction.Style.cancel, handler:{
-            // ボタンが押された時の処理を書く（クロージャ実装）
-            (action: UIAlertAction!) -> Void in
-            print("Cancel")
-        })
-        
-        // ③ UIAlertControllerにActionを追加
-        alert.addAction(cancelAction)
-        alert.addAction(defaultAction)
-        
-        // ④ Alertを表示
-        present(alert, animated: true, completion: nil)
+//        let alert: UIAlertController = UIAlertController(title: "確認！", message: "状態を「作業完了」に変更しますか？", preferredStyle: UIAlertController.Style.alert)
+//        let defaultAction: UIAlertAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler:{
+//            // ボタンが押された時の処理を書く（クロージャ実装）
+//
+//            (action: UIAlertAction!) -> Void in
+//            self.statusLabel.text = "作業完了"
+//            self.statusLabel.layer.backgroundColor = UIColor.green.cgColor
+//            print("OK")
+//        })
+//        // キャンセルボタン
+//        let cancelAction: UIAlertAction = UIAlertAction(title: "キャンセル", style: UIAlertAction.Style.cancel, handler:{
+//            // ボタンが押された時の処理を書く（クロージャ実装）
+//            (action: UIAlertAction!) -> Void in
+//            print("Cancel")
+//        })
+//
+//        // ③ UIAlertControllerにActionを追加
+//        alert.addAction(cancelAction)
+//        alert.addAction(defaultAction)
+//
+//        // ④ Alertを表示
+//        present(alert, animated: true, completion: nil)
+        showStatusChangeAlert(message: "状態を「作業完了」に変更しますか？", status: 3)
         
     }
     
@@ -133,7 +140,6 @@ class StatusViewController: UIViewController {
     }
     
     @IBOutlet weak var brodcastNameLavel: UILabel!
-    var broadcastName: String = ""
     
     @IBOutlet weak var statusLabel: UILabel!
     
@@ -142,19 +148,66 @@ class StatusViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        brodcastNameLavel.text = "\(broadcastName)"
+        brodcastNameLavel.text = broadcast?.name
         
         // Do any additional setup after loading the view.
     }
     
     func updateStatus(status: Int) {
+        let ref = Firestore.firestore().collection("areas").document(area!.id).collection("halls").document(hall!.id).collection("broadcasts").document(broadcast!.id)
         
-        Firestore.firestore().collection("areas").document(area?.id).collection("halls").document(hall?.id).collection("broadcasts").document(broadcast?.status).updateData(statusNumber)
+        ref.updateData([
+            "status": status
+        ])
+        
+        self.broadcast?.status = status
+        
+        setStatusLabel()
+    }
+
+    func setStatusLabel() {
+        if broadcast.status == 0 {
+            self.statusLabel.text = "異常なし"
+            self.statusLabel.layer.backgroundColor = UIColor.white.cgColor
+        } else if broadcast.status == 1 {
+            self.statusLabel.text = "入局中"
+            self.statusLabel.layer.backgroundColor = UIColor.cyan.cgColor
+        } else if broadcast.status == 2 {
+            self.statusLabel.text = "作業中"
+            self.statusLabel.layer.backgroundColor = UIColor.yellow.cgColor
+        } else if broadcast.status == 3 {
+            self.statusLabel.text = "作業完了"
+            self.statusLabel.layer.backgroundColor = UIColor.green.cgColor
+        } else if broadcast.status == 4 {
+            self.statusLabel.text = "火起完了"
+            self.statusLabel.layer.backgroundColor = UIColor.orange.cgColor
+        }
         
     }
     
-    func setStatusLabel() {
-        
+    func showStatusChangeAlert(message: String, status: Int) {
+        let alert: UIAlertController = UIAlertController(title: "確認！", message: "\(message)", preferredStyle: UIAlertController.Style.alert)
+                let defaultAction: UIAlertAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler:{
+                    // ボタンが押された時の処理を書く（クロージャ実装）
+                    
+                    (action: UIAlertAction!) -> Void in
+                    self.updateStatus(status: status)
+                    
+                    print("OK2")
+                })
+                // キャンセルボタン
+                let cancelAction: UIAlertAction = UIAlertAction(title: "キャンセル", style: UIAlertAction.Style.cancel, handler:{
+                    // ボタンが押された時の処理を書く（クロージャ実装）
+                    (action: UIAlertAction!) -> Void in
+                    print("Cancel")
+                })
+                
+                // ③ UIAlertControllerにActionを追加
+                alert.addAction(cancelAction)
+                alert.addAction(defaultAction)
+                
+                // ④ Alertを表示
+                present(alert, animated: true, completion: nil)
     }
     
     

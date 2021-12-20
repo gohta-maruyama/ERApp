@@ -14,8 +14,8 @@ class BroadcastViewController: UIViewController, UITableViewDelegate, UITableVie
     @IBOutlet weak var searchBar: UISearchBar!
     
     var broadArray: [BroadcastData] = []
-    var area: AreaData?;
-    var hall: HallData?;
+    var area: AreaData?
+    var hall: HallData?
 
     
     override func viewDidLoad() {
@@ -64,21 +64,35 @@ class BroadcastViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == "showStatusSegue" {
+//            if let indexPath = tableView.indexPathForSelectedRow{
+//
+//               guard let destination = segue.destination as? StatusViewController else{
+//
+//               fatalError("Failed to prepare StatusViewController")
+//            }
+//                destination.broadcastName = broadArray[indexPath.row].name
+//                destination.area = area
+//                destination.hall = hall
+//                destination.broadcast = broadArray[indexPath.row]
+//            }
+//        }
+//    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let statusViewController: StatusViewController = segue.destination as! StatusViewController
+        
         if segue.identifier == "showStatusSegue" {
-            if let indexPath = tableView.indexPathForSelectedRow{
-                
-               guard let destination = segue.destination as? StatusViewController else{
-                
-               fatalError("Failed to prepare StatusViewController")
-            }
-                destination.broadcastName = broadArray[indexPath.row].name
-                destination.area = area
-                destination.hall = hall
-                destination.broadcast = broadArray[indexPath.row]
-            }
+            
+            let indexPath = self.tableView.indexPathForSelectedRow
+            statusViewController.area = area
+            statusViewController.hall = hall
+            statusViewController.broadcast = broadArray[indexPath!.row]
         }
+        
     }
+    
     
     
     override func viewWillAppear(_ animated: Bool) {

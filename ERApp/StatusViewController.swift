@@ -80,19 +80,19 @@ class StatusViewController: UIViewController {
             
         }
         
-        if emergency?.status == 1 {
-            let emergencyAlert: UIAlertController = UIAlertController(title: "緊急", message: "火起こしを開始してください", preferredStyle: UIAlertController.Style.alert)
-            let defaultAction: UIAlertAction = UIAlertAction(title: "確認", style: UIAlertAction.Style.default, handler:{
-                // ボタンが押された時の処理を書く（クロージャ実装）
-                
-                (action: UIAlertAction!) -> Void in
-                self.broadcast.status = 5
-                
-                print("OK2")
-            })
-            emergencyAlert.addAction(defaultAction)
-            present(emergencyAlert, animated: true, completion: nil)
-        }
+//        if emergency?.emergencyStatus == 1 {
+//            let emergencyAlert: UIAlertController = UIAlertController(title: "緊急", message: "火起こしを開始してください", preferredStyle: UIAlertController.Style.alert)
+//            let defaultAction: UIAlertAction = UIAlertAction(title: "確認", style: UIAlertAction.Style.default, handler:{
+//                // ボタンが押された時の処理を書く（クロージャ実装）
+//                
+//                (action: UIAlertAction!) -> Void in
+//                self.broadcast.status = 5
+//                
+//                print("OK3")
+//            })
+//            emergencyAlert.addAction(defaultAction)
+//            present(emergencyAlert, animated: true, completion: nil)
+//        }
     }
     
     func updateStatus(status: Int) {

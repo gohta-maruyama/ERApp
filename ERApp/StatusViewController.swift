@@ -18,6 +18,7 @@ class StatusViewController: UIViewController {
     var emergencyArray: [EmergencyData] = []
     var statusNumber: Int = 0
     var alertMessage: String = ""
+    var listener: ListenerRegistration?
     
     @IBAction func normalityButton(_ sender: Any) {
         showStatusChangeAlert(message: "状態を「異常なし」に変更しますか？", status: 0)
@@ -65,7 +66,25 @@ class StatusViewController: UIViewController {
         broadcastNameLabel.text = broadcast?.name
         
         // Do any additional setup after loading the view
-        emergencyAlert()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        listener = Firestore.firestore().collection("emergencies").addSnapshotListener { documentSnapshot, error in
+            if let error = error {
+                print("ドキュメントの取得に失敗しました",error)
+            } else {
+                self.emergencyArray = documentSnapshot!.documents.map { document in
+                    let emergency = EmergencyData(document: document)
+                    return emergency
+                    
+                    if self.emergency.status == 1 {
+                        self.broadcast.status = 5
+                        }
+                    }
+                }
+            }
+        
+    
     }
     
     func updateStatus(status: Int) {
@@ -127,39 +146,7 @@ class StatusViewController: UIViewController {
                 present(alert, animated: true, completion: nil)
     }
     
-    func emergencyAlert() {
-        if Auth.auth().currentUser != nil {
-            let emergencyRef = Firestore.firestore().collection("areas").order(by: "name")
-            emergencyRef.getDocuments() { (querySnapshot, error) in
-                if let error = error {
-                    print("DEBUG_PRINT: snapshotの取得が失敗しました。 \(error)")
-                    return
-                    
-                }
-                self.emergencyArray = querySnapshot!.documents.map { document in
-                    let emergency = EmergencyData(document: document)
-                    print("DEBUG_PRINT: document取得 \(emergency.status)")
-                    return emergency
-                }
-            }
-            if emergency?.status == 1 {
-                broadcast.status = 5
-                let alert: UIAlertController = UIAlertController(title: "緊急", message: "火起こしを開始してください", preferredStyle: UIAlertController.Style.alert)
-                let defaultAction: UIAlertAction = UIAlertAction(title: "確認", style: UIAlertAction.Style.default, handler:{
-                    // ボタンが押された時の処理を書く（クロージャ実装）
-                    
-                    (action: UIAlertAction!) -> Void in
-                    
-                    print("OK3")
-                })
-                alert.addAction(defaultAction)
-                
-                // ④ Alertを表示
-                present(alert, animated: true, completion: nil)
-                
-            }
-        }
-    }
+
     
 
     

@@ -243,9 +243,9 @@
                                     <action selector="finishedWorking:" destination="mJF-Uw-EZT" eventType="touchUpInside" id="85n-TX-eRy"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wra-da-riT">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wra-da-riT">
                                 <rect key="frame" x="30" y="644.5" width="354" height="50"/>
-                                <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                                <color key="backgroundColor" systemColor="systemOrangeColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="kkP-9Y-emm"/>
                                 </constraints>
@@ -306,7 +306,8 @@
                     <tabBarItem key="tabBarItem" title="放送所管理" image="antenna.radiowaves.left.and.right" catalog="system" id="onF-SZ-MEq"/>
                     <navigationItem key="navigationItem" id="a6J-ve-d0H"/>
                     <connections>
-                        <outlet property="brodcastNameLavel" destination="EIl-dQ-nBg" id="DRf-IF-Z3u"/>
+                        <outlet property="broadcastNameLabel" destination="EIl-dQ-nBg" id="YU7-dz-ffc"/>
+                        <outlet property="emergencyReady" destination="wra-da-riT" id="VEi-lC-qvg"/>
                         <outlet property="normalityButton" destination="bzU-1C-Scc" id="QQT-8M-86L"/>
                         <outlet property="statusLabel" destination="TSW-gn-S3J" id="ara-At-gqD"/>
                     </connections>
@@ -421,9 +422,6 @@
         <systemColor name="linkColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
-        <systemColor name="opaqueSeparatorColor">
-            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
@@ -432,6 +430,9 @@
         </systemColor>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemTealColor">
             <color red="0.35294117647058826" green="0.78431372549019607" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

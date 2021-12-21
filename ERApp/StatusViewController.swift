@@ -99,23 +99,23 @@ class StatusViewController: UIViewController {
             let source = documentSnapshot.metadata.hasPendingWrites ? "Local" : "Server"
             print("\(source) data : \(documentSnapshot.data()!)")
 
-            if Auth.auth().currentUser != nil {
-                let ref = Firestore.firestore().collection("emergencies")
-                ref.getDocuments() { (querySnapshot, error) in
-                    if let error = error {
-                        print("snapshot失敗。\(error)")
-                        return
-                    }
-                    self.emergencyArray = querySnapshot!.documents.map { document in
-                        let emergency = EmergencyData(document: document)
-
-                        return emergency
-                    }
-                    if self.emergency?.emergencyStatus == 1 {
-                        self.emergencyAlert()
-                    }
-                }
-            }
+//            if Auth.auth().currentUser != nil {
+//                let ref = Firestore.firestore().collection("emergencies")
+//                ref.getDocuments() { (querySnapshot, error) in
+//                    if let error = error {
+//                        print("snapshot失敗。\(error)")
+//                        return
+//                    }
+//                    self.emergencyArray = querySnapshot!.documents.map { document in
+//                        let emergency = EmergencyData(document: document)
+//
+//                        return emergency
+//                    }
+//                    if self.emergency?.emergencyStatus == 1 {
+//                        self.emergencyAlert()
+//                    }
+//                }
+//            }
         }
     }
     

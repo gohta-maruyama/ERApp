@@ -268,6 +268,14 @@
                                     <action selector="normalityButton:" destination="mJF-Uw-EZT" eventType="touchUpInside" id="hI6-eQ-96C"/>
                                 </connections>
                             </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q5H-Rh-7IG">
+                                <rect key="frame" x="336" y="229" width="30" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="emc-a3-Ach"/>
+                                </constraints>
+                                <color key="tintColor" systemColor="systemRedColor"/>
+                                <state key="normal" title="Button" image="exclamationmark.circle.fill" catalog="system"/>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="rgJ-Jf-paa"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -287,11 +295,13 @@
                             <constraint firstItem="Uh1-X5-dnu" firstAttribute="centerX" secondItem="mke-Nt-gvv" secondAttribute="centerX" id="QT7-pt-mvc"/>
                             <constraint firstItem="rgJ-Jf-paa" firstAttribute="trailing" secondItem="Uh1-X5-dnu" secondAttribute="trailing" constant="30" id="ThL-8s-K0Y"/>
                             <constraint firstItem="dXz-jw-Bd1" firstAttribute="leading" secondItem="rgJ-Jf-paa" secondAttribute="leading" constant="30" id="V6W-5w-3LS"/>
+                            <constraint firstItem="q5H-Rh-7IG" firstAttribute="leading" secondItem="TSW-gn-S3J" secondAttribute="trailing" constant="10" id="WcJ-OV-3et"/>
                             <constraint firstItem="TSW-gn-S3J" firstAttribute="leading" secondItem="5En-Ch-DuT" secondAttribute="trailing" id="Yda-0H-qAv"/>
                             <constraint firstItem="Vox-KX-3pO" firstAttribute="leading" secondItem="rgJ-Jf-paa" secondAttribute="leading" constant="30" id="ZUQ-BC-Z1G"/>
                             <constraint firstItem="TSW-gn-S3J" firstAttribute="centerY" secondItem="5En-Ch-DuT" secondAttribute="centerY" id="aHW-6D-unc"/>
                             <constraint firstItem="dXz-jw-Bd1" firstAttribute="top" secondItem="Uh1-X5-dnu" secondAttribute="bottom" constant="20" id="bBk-kX-b3B"/>
                             <constraint firstItem="rgJ-Jf-paa" firstAttribute="trailing" secondItem="dXz-jw-Bd1" secondAttribute="trailing" constant="30" id="cgb-C8-2E1"/>
+                            <constraint firstItem="q5H-Rh-7IG" firstAttribute="bottom" secondItem="TSW-gn-S3J" secondAttribute="bottom" id="jPT-xy-Awq"/>
                             <constraint firstItem="Uh1-X5-dnu" firstAttribute="top" secondItem="bzU-1C-Scc" secondAttribute="bottom" constant="20" id="juN-V9-uUS"/>
                             <constraint firstItem="Uh1-X5-dnu" firstAttribute="leading" secondItem="rgJ-Jf-paa" secondAttribute="leading" constant="30" id="mdB-tP-vu3"/>
                             <constraint firstItem="EIl-dQ-nBg" firstAttribute="top" secondItem="rgJ-Jf-paa" secondAttribute="top" constant="40" id="nJk-Lm-opo"/>
@@ -306,10 +316,14 @@
                     <tabBarItem key="tabBarItem" title="放送所管理" image="antenna.radiowaves.left.and.right" catalog="system" id="onF-SZ-MEq"/>
                     <navigationItem key="navigationItem" id="a6J-ve-d0H"/>
                     <connections>
+                        <outlet property="admissionButton" destination="Uh1-X5-dnu" id="6mq-2s-0rg"/>
                         <outlet property="broadcastNameLabel" destination="EIl-dQ-nBg" id="YU7-dz-ffc"/>
                         <outlet property="emergencyReady" destination="wra-da-riT" id="VEi-lC-qvg"/>
+                        <outlet property="finishedWorking" destination="Vox-KX-3pO" id="T1n-8g-dVE"/>
                         <outlet property="normalityButton" destination="bzU-1C-Scc" id="QQT-8M-86L"/>
                         <outlet property="statusLabel" destination="TSW-gn-S3J" id="ara-At-gqD"/>
+                        <outlet property="warningMark" destination="q5H-Rh-7IG" id="Air-18-hNX"/>
+                        <outlet property="workingButton" destination="dXz-jw-Bd1" id="xKH-f9-nZc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TWa-IU-8BR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -414,6 +428,7 @@
     </scenes>
     <resources>
         <image name="antenna.radiowaves.left.and.right" catalog="system" width="128" height="109"/>
+        <image name="exclamationmark.circle.fill" catalog="system" width="128" height="121"/>
         <image name="gearshape.2" catalog="system" width="128" height="100"/>
         <image name="message" catalog="system" width="128" height="113"/>
         <systemColor name="labelColor">
@@ -433,6 +448,9 @@
         </systemColor>
         <systemColor name="systemOrangeColor">
             <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemTealColor">
             <color red="0.35294117647058826" green="0.78431372549019607" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

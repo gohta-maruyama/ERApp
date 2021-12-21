@@ -13,9 +13,9 @@ class EmergencyData: NSObject {
     var emergencyStatus: Int?
     var halls: [HallData] = []
     
-    init(id: String, status: Int) {
+    init(id: String, emergencyStatus: Int) {
         self.id = id
-        self.emergencyStatus = status
+        self.emergencyStatus = emergencyStatus
         
     }
     init(document: QueryDocumentSnapshot) {
@@ -23,7 +23,7 @@ class EmergencyData: NSObject {
         
         let emergencyDic = document.data()
         
-        self.emergencyStatus = emergencyDic["status"] as! Int?
+        self.emergencyStatus = emergencyDic["emergencyStatus"] as! Int?
         
         }
     

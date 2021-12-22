@@ -90,33 +90,36 @@ class StatusViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        Firestore.firestore().collection("emergencies").document(hall.id).addSnapshotListener { documentSnapshot, error in
-            guard let documentSnapshot = documentSnapshot
-            else {
-                print("Error fetching document: \(error!)")
+//        Firestore.firestore().collection("emergencies").document(hall.id).addSnapshotListener { documentSnapshot, error in
+//            guard let documentSnapshot = documentSnapshot
+//            else {
+//                print("Error fetching document: \(error!)")
+//                return
+//            }
+//            let source = documentSnapshot.metadata.hasPendingWrites ? "Local" : "Server"
+//            print("\(source) data : \(documentSnapshot.data()!)")
+//
+//        }
+            
+        Firestore.firestore().collection("emergencies").whereField("emergencyStatus", isEqualTo: 0).addSnapshotListener{ (querySnapshot, error) in
+            guard let documents = querySnapshot?.documents
+            else{
+                print("Error fetching documents: \(error!)")
                 return
             }
-            let source = documentSnapshot.metadata.hasPendingWrites ? "Local" : "Server"
-            print("\(source) data : \(documentSnapshot.data()!)")
-
-//            if Auth.auth().currentUser != nil {
-//                let ref = Firestore.firestore().collection("emergencies")
-//                ref.getDocuments() { (querySnapshot, error) in
-//                    if let error = error {
-//                        print("snapshot失敗。\(error)")
-//                        return
-//                    }
-//                    self.emergencyArray = querySnapshot!.documents.map { document in
-//                        let emergency = EmergencyData(document: document)
-//
-//                        return emergency
-//                    }
-//                    if self.emergency?.emergencyStatus == 1 {
-//                        self.emergencyAlert()
-//                    }
-//                }
-//            }
+            let status = documents.map {$0["emergencyStatus"]!}
+            print(status)
+            self.emergencyArray = querySnapshot!.documents.map { document in
+                //                print("document取得\()")
+                let emergenData = EmergencyData(document: document)
+                return emergenData
+                
+            }
         }
+        if self.emergencyArray.isEmpty {
+            self.emergencyAlert()
+        }
+        
     }
     
     func updateStatus(status: Int) {
@@ -180,6 +183,8 @@ class StatusViewController: UIViewController {
         // ④ Alertを表示
         present(alert, animated: true, completion: nil)
     }
+    
+ 
     
     func emergencyAlert() {
         let emergencyAlert: UIAlertController = UIAlertController(title: "緊急", message: "火起こしを開始してください", preferredStyle: UIAlertController.Style.alert)

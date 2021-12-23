@@ -18,7 +18,6 @@ class StatusViewController: UIViewController {
     var emergencyArray: [EmergencyData] = []
     var statusNumber: Int = 0
     var alertMessage: String = ""
-    var listener: ListenerRegistration?
     
     @IBAction func normalityButton(_ sender: Any) {
         showStatusChangeAlert(message: "状態を「異常なし」に変更しますか？", status: 0)
@@ -44,11 +43,7 @@ class StatusViewController: UIViewController {
         showStatusChangeAlert(message: "状態を「火起完了」に変更しますか？", status: 4)
         emergencyReady.isHidden = true
         emergencyReady.isEnabled = false
-        warningMark.isHidden = true
-        self.normalityButton.isHidden = false
-        self.admissionButton.isHidden = false
-        self.workingButton.isHidden = false
-        self.finishedWorking.isHidden = false
+        
     }
     @IBOutlet weak var emergencyReady: UIButton!
     
@@ -90,34 +85,23 @@ class StatusViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-//        Firestore.firestore().collection("emergencies").document(hall.id).addSnapshotListener { documentSnapshot, error in
-//            guard let documentSnapshot = documentSnapshot
-//            else {
-//                print("Error fetching document: \(error!)")
-//                return
-//            }
-//            let source = documentSnapshot.metadata.hasPendingWrites ? "Local" : "Server"
-//            print("\(source) data : \(documentSnapshot.data()!)")
-//
-//        }
-            
-        Firestore.firestore().collection("emergencies").whereField("emergencyStatus", isEqualTo: 0).addSnapshotListener{ (querySnapshot, error) in
-            guard let documents = querySnapshot?.documents
-            else{
-                print("Error fetching documents: \(error!)")
+        Firestore.firestore().collection("emergencies").document(hall.id).addSnapshotListener { documentSnapshot, error in
+            guard let documentSnapshot = documentSnapshot
+            else {
+                print("Error fetching document: \(error!)")
                 return
             }
-            let status = documents.map {$0["emergencyStatus"]!}
-            print(status)
-            self.emergencyArray = querySnapshot!.documents.map { document in
-                //                print("document取得\()")
-                let emergenData = EmergencyData(document: document)
-                return emergenData
-                
+            let source = documentSnapshot.metadata.hasPendingWrites ? "Local" : "Server"
+            print("\(source) data : \(documentSnapshot.data()!)")
+            
+            if let document = documentSnapshot.data() , let status = document["emergencyStatus"] as? Int {
+                if status == 1 {
+                    self.emergencyAlert()
+                } else if status == 2 {
+                    self.finishedEmergencyAlert()
+                }
             }
-        }
-        if self.emergencyArray.isEmpty {
-            self.emergencyAlert()
+            
         }
         
     }
@@ -132,6 +116,14 @@ class StatusViewController: UIViewController {
         self.broadcast?.status = status
         
         setStatusLabel()
+    }
+    
+    func updateEmergencyStatus() {
+        let ref = Firestore.firestore().collection("emergencies").document(hall.id)
+        ref.updateData([
+            "emergencyStatus": 0
+        ])
+        self.emergency?.emergencyStatus = 0
     }
     
 
@@ -166,7 +158,7 @@ class StatusViewController: UIViewController {
             
             (action: UIAlertAction!) -> Void in
             self.updateStatus(status: status)
-            
+            self.updateEmergencyStatus()
             print("OK2")
         })
         // キャンセルボタン
@@ -202,6 +194,21 @@ class StatusViewController: UIViewController {
         })
         emergencyAlert.addAction(defaulAction)
         present(emergencyAlert, animated: true, completion: nil)
+    }
+    
+    func finishedEmergencyAlert() {
+        let finishedemergencyAlert: UIAlertController = UIAlertController(title: "火起こし終了", message: "作業を再開してください", preferredStyle: UIAlertController.Style.alert)
+        let defaulAction: UIAlertAction = UIAlertAction(title: "確認", style: UIAlertAction.Style.default, handler: {
+            (action: UIAlertAction!) -> Void in
+            self.warningMark.isHidden = true
+            self.normalityButton.isHidden = false
+            self.admissionButton.isHidden = false
+            self.workingButton.isHidden = false
+            self.finishedWorking.isHidden = false
+            print("finishedEmergencyAlert:OK")
+        })
+        finishedemergencyAlert.addAction(defaulAction)
+        present(finishedemergencyAlert, animated: true, completion: nil)
     }
 
     

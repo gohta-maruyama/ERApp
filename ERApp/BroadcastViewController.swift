@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class BroadcastViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
+class BroadcastViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     
@@ -62,23 +62,6 @@ class BroadcastViewController: UIViewController, UITableViewDelegate, UITableVie
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-    
-    
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "showStatusSegue" {
-//            if let indexPath = tableView.indexPathForSelectedRow{
-//
-//               guard let destination = segue.destination as? StatusViewController else{
-//
-//               fatalError("Failed to prepare StatusViewController")
-//            }
-//                destination.broadcastName = broadArray[indexPath.row].name
-//                destination.area = area
-//                destination.hall = hall
-//                destination.broadcast = broadArray[indexPath.row]
-//            }
-//        }
-//    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let statusViewController: StatusViewController = segue.destination as! StatusViewController

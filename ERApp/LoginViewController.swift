@@ -44,12 +44,14 @@ class LoginViewController: UIViewController {
         }
     }
     
+    private var toolbar: UIToolbar!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         // Do any additional setup after loading the view.
     }
+    
+
     
     
     /*

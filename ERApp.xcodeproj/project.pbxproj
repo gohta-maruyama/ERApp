@@ -23,6 +23,9 @@
 		921B413A2763216C00F730A5 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921B41392763216C00F730A5 /* TabBarController.swift */; };
 		921B413C2763251B00F730A5 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921B413B2763251B00F730A5 /* LoginViewController.swift */; };
 		923A9044277031EF00CA8411 /* EmergencyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923A9043277031EE00CA8411 /* EmergencyData.swift */; };
+		928CA224277962F7000E020A /* PostData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928CA223277962F7000E020A /* PostData.swift */; };
+		928CA22727796331000E020A /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928CA22527796331000E020A /* PostTableViewCell.swift */; };
+		928CA22827796331000E020A /* PostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 928CA22627796331000E020A /* PostTableViewCell.xib */; };
 		92E4D7212769B4F9005591B4 /* getFireStoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E4D7202769B4F9005591B4 /* getFireStoreData.swift */; };
 		92E4D7232769E878005591B4 /* HallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E4D7222769E878005591B4 /* HallViewController.swift */; };
 		FBDACCCB35CEA0FB9459E24E /* Pods_ERApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6A7EE744A43A7C588B51FF7 /* Pods_ERApp.framework */; };
@@ -47,6 +50,9 @@
 		921B41392763216C00F730A5 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		921B413B2763251B00F730A5 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		923A9043277031EE00CA8411 /* EmergencyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmergencyData.swift; sourceTree = "<group>"; };
+		928CA223277962F7000E020A /* PostData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostData.swift; sourceTree = "<group>"; };
+		928CA22527796331000E020A /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
+		928CA22627796331000E020A /* PostTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostTableViewCell.xib; sourceTree = "<group>"; };
 		92E4D7202769B4F9005591B4 /* getFireStoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getFireStoreData.swift; sourceTree = "<group>"; };
 		92E4D7222769E878005591B4 /* HallViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HallViewController.swift; sourceTree = "<group>"; };
 		A6A7EE744A43A7C588B51FF7 /* Pods_ERApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ERApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -117,6 +123,9 @@
 				921B412F2761E76600F730A5 /* HallData.swift */,
 				921B41312761E7A900F730A5 /* BroadcastData.swift */,
 				923A9043277031EE00CA8411 /* EmergencyData.swift */,
+				928CA223277962F7000E020A /* PostData.swift */,
+				928CA22527796331000E020A /* PostTableViewCell.swift */,
+				928CA22627796331000E020A /* PostTableViewCell.xib */,
 				92E4D7202769B4F9005591B4 /* getFireStoreData.swift */,
 				921B411B2761D68E00F730A5 /* Main.storyboard */,
 				921B411E2761D68F00F730A5 /* Assets.xcassets */,
@@ -187,6 +196,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				921B41222761D68F00F730A5 /* LaunchScreen.storyboard in Resources */,
+				928CA22827796331000E020A /* PostTableViewCell.xib in Resources */,
 				921B412A2761DB0800F730A5 /* GoogleService-Info.plist in Resources */,
 				921B411F2761D68F00F730A5 /* Assets.xcassets in Resources */,
 				921B411D2761D68E00F730A5 /* Main.storyboard in Resources */,
@@ -252,6 +262,8 @@
 				921B4138276320DD00F730A5 /* SettingViewController.swift in Sources */,
 				921B41302761E76600F730A5 /* HallData.swift in Sources */,
 				92E4D7232769E878005591B4 /* HallViewController.swift in Sources */,
+				928CA224277962F7000E020A /* PostData.swift in Sources */,
+				928CA22727796331000E020A /* PostTableViewCell.swift in Sources */,
 				921B41322761E7A900F730A5 /* BroadcastData.swift in Sources */,
 				923A9044277031EF00CA8411 /* EmergencyData.swift in Sources */,
 				921B4136276320D000F730A5 /* ChatViewController.swift in Sources */,
@@ -332,7 +344,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -387,7 +399,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
